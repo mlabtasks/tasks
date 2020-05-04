@@ -19,7 +19,7 @@
     //#######################################################//
 
     //------------------------TIMINGS-----------------------//
-    var ITEMinterval = 7000
+    var ITEMinterval = 4000
     var ITIinterval = 1000
 
     //---------------------TRIAL COUNTS--------------------//
@@ -183,7 +183,7 @@
       ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
       //sets up the text attributes
-      ctx.font="bold 20px Arial";
+      ctx.font="bold 18px Arial";
       ctx.fillStyle="white";
       ctx.textBaseline="middle";
       ctx.textAlign="center";
@@ -194,8 +194,8 @@
       randomnum4 = getRandomInt(100)
 
       ctx.fillText("("+randomnum1+" + "+randomnum2+") > ("+randomnum3+" - "+randomnum4+")",myCanvas.width/2,myCanvas.height/2);
-      ctx.fillText("Press 1 if the above mathematical statement is true.",myCanvas.width/2,(myCanvas.height/2)+200);
-      ctx.fillText("Press 2 if the above mathematical statement is false.",myCanvas.width/2,(myCanvas.height/2)+250);
+      ctx.fillText("Press 1 if the above mathematical statement is true.",myCanvas.width/2,(myCanvas.height/2)+50);
+      ctx.fillText("Press 2 if the above mathematical statement is false.",myCanvas.width/2,(myCanvas.height/2)+70);
 
       //record presentation data
       data[logCounter] = ["ITP:", i, randomnum1, randomnum2, randomnum3, randomnum4,
@@ -215,7 +215,7 @@
       ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
       //sets up the text attributes
-      ctx.font="bold 20px Arial";
+      ctx.font="bold 16px Arial";
       ctx.fillStyle="white";
       ctx.textBaseline="middle";
       ctx.textAlign="center";
@@ -228,7 +228,7 @@
       logCounter++;
 
       //timeout variable
-      timeoutIMAGE = setTimeout(iti_screen,ITEMinterval);
+      timeoutIMAGE = setTimeout(allow_button,ITEMinterval);
     };
 
     //------------------------MW SCREENS--------------------//
@@ -238,17 +238,17 @@
       type = 4;
       $("#startButton").hide();
       ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-      ctx.font="25px Arial";
+      ctx.font="16px Arial";
       ctx.fillStyle="white";
       ctx.textBaseline="middle";
       ctx.textAlign="center";
 
       ctx.fillText("Just prior to the onset of this screen, I was:", (myCanvas.width/2), (myCanvas.height/2)-50);
       ctx.fillText("(5) Focused on the task.", (myCanvas.width/2), (myCanvas.height/2));
-      ctx.fillText("(6) Not focused on the task, but I WAS trying to focus on it.", (myCanvas.width/2), (myCanvas.height/2)+50);
-      ctx.fillText("(7) Not focused on the task, and I WASN'T trying to focus on it.", (myCanvas.width/2), (myCanvas.height/2)+100);
+      ctx.fillText("(6) Not focused on the task, but I WAS trying to focus on it.", (myCanvas.width/2), (myCanvas.height/2)+20);
+      ctx.fillText("(7) Not focused on the task, and I WASN'T trying to focus on it.", (myCanvas.width/2), (myCanvas.height/2)+40);
 
-      ctx.fillText("Please press the corresponding number to indiciate your choice.", (myCanvas.width/2), (myCanvas.height/2)+200);
+      ctx.fillText("Please press the corresponding number to indiciate your choice.", (myCanvas.width/2), (myCanvas.height/2)+90);
 
       //record presentation data
       data[logCounter] = ["MWP:", i, onset, 9999, 9999, 9999,
@@ -267,7 +267,7 @@
       ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
       //sets up the text attributes
-      ctx.font="bold 20px Arial";
+      ctx.font="bold 16px Arial";
       ctx.fillStyle="white";
       ctx.textBaseline="middle";
       ctx.textAlign="center";
@@ -275,24 +275,26 @@
       ctx.fillText(triviaitems[config],myCanvas.width/2,myCanvas.height/2);
 
       ctx.font="bold 15px Arial";
+      ctx.textBaseline="middle";
+      ctx.textAlign="center";
 
-      ctx.fillText("1",(myCanvas.width/2)-325,(myCanvas.height/2)+100);
-      ctx.fillText("Definitely False",(myCanvas.width/2)-325,(myCanvas.height/2)+120);
+      ctx.fillText("1",(myCanvas.width/2)-195,(myCanvas.height/2)+100);
+      ctx.fillText("Definitely False",(myCanvas.width/2)-195,(myCanvas.height/2)+120);
 
-      ctx.fillText("2",(myCanvas.width/2)-195,(myCanvas.height/2)+100);
-      ctx.fillText("---------------",(myCanvas.width/2)-195,(myCanvas.height/2)+120);
+      ctx.fillText("2",(myCanvas.width/2)-120,(myCanvas.height/2)+100);
+      //ctx.fillText("---------------",(myCanvas.width/2)-195,(myCanvas.height/2)+120);
 
-      ctx.fillText("3",(myCanvas.width/2)-65,(myCanvas.height/2)+100);
-      ctx.fillText("---------------",(myCanvas.width/2)-65,(myCanvas.height/2)+120);
+      ctx.fillText("3",(myCanvas.width/2)-45,(myCanvas.height/2)+100);
+      ctx.fillText("-----------------------------",(myCanvas.width/2)-65,(myCanvas.height/2)+120);
 
-      ctx.fillText("4",(myCanvas.width/2)+65,(myCanvas.height/2)+100);
-      ctx.fillText("---------------",(myCanvas.width/2)+65,(myCanvas.height/2)+120);
+      ctx.fillText("4",(myCanvas.width/2)+45,(myCanvas.height/2)+100);
+      ctx.fillText("------------------------------",(myCanvas.width/2)+65,(myCanvas.height/2)+120);
 
-      ctx.fillText("5",(myCanvas.width/2)+195,(myCanvas.height/2)+100);
-      ctx.fillText("---------------",(myCanvas.width/2)+195,(myCanvas.height/2)+120);
+      ctx.fillText("5",(myCanvas.width/2)+120,(myCanvas.height/2)+100);
+      //ctx.fillText("---------------",(myCanvas.width/2)+195,(myCanvas.height/2)+120);
 
-      ctx.fillText("6",(myCanvas.width/2)+325,(myCanvas.height/2)+100);
-      ctx.fillText("Definitely True",(myCanvas.width/2)+325,(myCanvas.height/2)+120);
+      ctx.fillText("6",(myCanvas.width/2)+195,(myCanvas.height/2)+100);
+      ctx.fillText("Definitely True",(myCanvas.width/2)+195,(myCanvas.height/2)+120);
 
       //record presentation data
       data[logCounter] = ["PP:", i, onset, triviaitems[config], config, 9999,
@@ -338,7 +340,7 @@
         ctx.fillStyle = "white";
         ctx.font="60px Arial";
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-        ctx.fillText(""+time, 450, 450);
+        ctx.fillText(""+time, myCanvas.width/2, myCanvas.height/2);
         timeoutcountdown = setTimeout(function(){countDown(time-1)},750);
       }
       else
@@ -346,6 +348,10 @@
         iti_screen();
       }
     };
+
+    function allow_button(){
+      type = 7;
+    }
 
     //#######################################################//
     //-----------------INSTRUCTION SCREENS-------------------//
@@ -360,30 +366,26 @@
       ctx.textBaseline="middle";
       ctx.textAlign="center";
 
-      ctx.font="bold 45px Arial";
-      ctx.fillText("You will now begin the task.", (myCanvas.width/2), (myCanvas.height/2)-400);
-      ctx.font="25px Arial";
-      ctx.fillText("You will complete blocks of trials, taking ~60min in total.", (myCanvas.width/2), (myCanvas.height/2)-350);
-      ctx.fillText("__________________________________________________________________________________", (myCanvas.width/2), (myCanvas.height/2)-340);
+      ctx.font="bold 18px Arial";
+      ctx.fillText("You will now begin the task.", (myCanvas.width/2), (myCanvas.height/2)-240);
+      ctx.font="14px Arial";
+      ctx.fillText("You will complete 3 blocks of trials, taking ~60min in total.", (myCanvas.width/2), (myCanvas.height/2)-200);
+      ctx.fillText("__________________________________________________________________________________", (myCanvas.width/2), (myCanvas.height/2)-190);
       ctx.textAlign="left";
-      ctx.fillText("In the first section of the experiment today, please read each statement", 0, (myCanvas.height/2)-300);
-      ctx.fillText("carefully, and do your best to pay attention for the full duration of the", (0.0), (myCanvas.height/2)-250);
-      ctx.fillText("study. If, however, at some points throughout the task you find that you", (0.0), (myCanvas.height/2)-200);
-      ctx.fillText("are not paying attention to the task, please know that this is completely", (0.0), (myCanvas.height/2)-150);
-      ctx.fillText("normal. Thus, when asked if you were paying attention, please answer honestly.", (0.0), (myCanvas.height/2)-100);
+      ctx.fillText("In the first section of the experiment today, please read each statement carefully.", 0, (myCanvas.height/2)-150);
+      ctx.fillText("After you have read the statement, press the 'N' key to continue on to the next ", (0.0), (myCanvas.height/2)-110);
+      ctx.fillText("statement. Please note there is a minimum time of 4 seconds per statement", (0.0), (myCanvas.height/2)-90);
+      ctx.fillText("before you can continue, but no maximum time.", (0.0), (myCanvas.height/2)-70);
+      ctx.fillText("Please do your best to pay attention for the full duration of the study. If,", (0.0), (myCanvas.height/2)-30);
 
-
-      ctx.fillText("In the second section, please rate the mathematical statements as to", (0.0), (myCanvas.height/2)-0);
-      ctx.fillText("whether they are true or false.", (0.0), (myCanvas.height/2)+50);
-
-      ctx.fillText("In the third section, you will read a number of different statements and,", (0.0), (myCanvas.height/2)+150);
-      ctx.fillText("for each statement, you will be asked to rate the likelihood that the", (0.0), (myCanvas.height/2)+200);
-      ctx.fillText("statement is true.", (0.0), (myCanvas.height/2)+250);
-
-      ctx.fillText("More instructions will be given before each section.", 0, (myCanvas.height/2)+350);
+      ctx.fillText("however, at some points throughout the task you find that you are not paying", (0.0), (myCanvas.height/2)-10);
+      ctx.fillText("attention to the task, please know that this is completely normal. Thus,", (0.0), (myCanvas.height/2)+10);
+      ctx.fillText("when asked if you were paying attention, please answer honestly.", (0.0), (myCanvas.height/2)+30);
 
       ctx.textAlign="center";
-      ctx.fillText("Press any key on your keyboard to begin the task.", (myCanvas.width/2), (myCanvas.height/2)+420);
+      ctx.fillText("More instructions will be given before each section.", (myCanvas.width/2), (myCanvas.height/2)+80);
+      ctx.textAlign="center";
+      ctx.fillText("Press any key on your keyboard to begin the task.", (myCanvas.width/2), (myCanvas.height/2)+110);
     };
 
     function instructions2(){
@@ -396,23 +398,24 @@
       ctx.textBaseline="middle";
       ctx.textAlign="center";
 
-      ctx.font="bold 45px Arial";
-      ctx.fillText("Now you will start the 2nd section.", (myCanvas.width/2), (myCanvas.height/2)-400);
-      ctx.font="25px Arial";
-      ctx.fillText("__________________________________________________________________________________", (myCanvas.width/2), (myCanvas.height/2)-340);
+      ctx.font="bold 18px Arial";
+      ctx.fillText("Now you will start the 2nd section.", (myCanvas.width/2), (myCanvas.height/2)-240);
+      ctx.font="14px Arial";
+      ctx.fillText("__________________________________________________________________________________", (myCanvas.width/2), (myCanvas.height/2)-200);
       ctx.textAlign="left";
-      ctx.fillText("In the following trials, please rate whether the mathematical statement", 0, (myCanvas.height/2)-300);
-      ctx.fillText("shown is true or false. ", (0.0), (myCanvas.height/2)-250);
+      ctx.fillText("In the following trials, please rate whether the mathematical statement", 0, (myCanvas.height/2)-150);
+      ctx.fillText("is true or false.", (0.0), (myCanvas.height/2)-130);
 
 
-      ctx.fillText("For example, you might see:", (0.0), (myCanvas.height/2)-150);
-      ctx.fillText("(52 + 41) > (63 - 8)", (0.0), (myCanvas.height/2)-100);
+      ctx.fillText("For example, you might see:", (0.0), (myCanvas.height/2)-100);
+      ctx.textAlign="center";
+      ctx.fillText("(52 + 41) > (63 - 8)", (myCanvas.width/2), (myCanvas.height/2)-50);
 
-      ctx.fillText("If this is a true statement, press 1.", (0.0), (myCanvas.height/2));
-      ctx.fillText("If this is a false statement, press 2.", (0.0), (myCanvas.height/2)+50);
+      ctx.fillText("If this is a true statement, press 1.", (myCanvas.width/2), (myCanvas.height/2));
+      ctx.fillText("If this is a false statement, press 2.", (myCanvas.width/2), (myCanvas.height/2)+20);
 
       ctx.textAlign="center";
-      ctx.fillText("Press any key on your keyboard to resume the task.", (myCanvas.width/2), (myCanvas.height/2)+420);
+      ctx.fillText("Press any key on your keyboard to resume the task.", (myCanvas.width/2), (myCanvas.height/2)+100);
     };
 
     function instructions3(){
@@ -425,58 +428,59 @@
       ctx.textBaseline="middle";
       ctx.textAlign="center";
 
-      ctx.font="bold 45px Arial";
-      ctx.fillText("You will now start the 3rd section.", (myCanvas.width/2), (myCanvas.height/2)-400);
-      ctx.font="25px Arial";
-      ctx.fillText("__________________________________________________________________________________", (myCanvas.width/2), (myCanvas.height/2)-380);
+      ctx.font="bold 18px Arial";
+      ctx.fillText("You will now start the 3rd section.", (myCanvas.width/2), (myCanvas.height/2)-240);
+      ctx.font="14px Arial";
+      ctx.fillText("__________________________________________________________________________________", (myCanvas.width/2), (myCanvas.height/2)-200);
       ctx.textAlign="left";
-      ctx.fillText("On the following pages, you will read a number of different statements", 0, (myCanvas.height/2)-350);
-      ctx.fillText("and, for each statement, you will be asked to rate the likelihood that", (0.0), (myCanvas.height/2)-310);
-      ctx.fillText("the statement is true . You can select any number on a scale from 1 ", (0.0), (myCanvas.height/2)-270);
+      ctx.fillText("On the following pages, you will read a number of different statements", 0, (myCanvas.height/2)-150);
+      ctx.fillText("and, for each statement, you will be asked to rate the likelihood that", (0.0), (myCanvas.height/2)-130);
+      ctx.fillText("the statement is true . You can select any number on a scale from 1 ", (0.0), (myCanvas.height/2)-110);
 
-      ctx.fillText("(definitely false) to 6 (definitely true). 1 and 6 are the opposing ", (0.0), (myCanvas.height/2)-230);
-      ctx.fillText("extremes on the scale. You can select any number from 1 to 6 in ", (0.0), (myCanvas.height/2)-190);
-      ctx.fillText("accordance with your view.", (0.0), (myCanvas.height/2)-150);
+      ctx.fillText("(definitely false) to 6 (definitely true). 1 and 6 are the opposing ", (0.0), (myCanvas.height/2)-90);
+      ctx.fillText("extremes on the scale. You can select any number from 1 to 6 in ", (0.0), (myCanvas.height/2)-70);
+      ctx.fillText("accordance with your view.", (0.0), (myCanvas.height/2)-50);
 
 
-      ctx.fillText("For example, you might see statements like the one below, and you will ", (0.0), (myCanvas.height/2)-90);
-      ctx.fillText("rate the likelihood that each statement is true on the scale provided:", (0.0), (myCanvas.height/2)-50);
+      ctx.fillText("For example, you might see statements like the one below, and you will ", (0.0), (myCanvas.height/2)-20);
+      ctx.fillText("rate the likelihood that each statement is true on the scale provided:", (0.0), (myCanvas.height/2)-0);
       ctx.textAlign="center";
+      ctx.font="20px Arial";
       ctx.fillText("The capital of Malaysia is Kuala Lumpur. ", (myCanvas.width/2), (myCanvas.height/2)+40);
 
       ctx.font="bold 15px Arial";
       ctx.textBaseline="middle";
       ctx.textAlign="center";
 
-      ctx.fillText("1",(myCanvas.width/2)-325,(myCanvas.height/2)+100);
-      ctx.fillText("Definitely False",(myCanvas.width/2)-325,(myCanvas.height/2)+120);
+      ctx.fillText("1",(myCanvas.width/2)-195,(myCanvas.height/2)+100);
+      ctx.fillText("Definitely False",(myCanvas.width/2)-195,(myCanvas.height/2)+120);
 
-      ctx.fillText("2",(myCanvas.width/2)-195,(myCanvas.height/2)+100);
-      ctx.fillText("---------------",(myCanvas.width/2)-195,(myCanvas.height/2)+120);
+      ctx.fillText("2",(myCanvas.width/2)-120,(myCanvas.height/2)+100);
+      //ctx.fillText("---------------",(myCanvas.width/2)-195,(myCanvas.height/2)+120);
 
-      ctx.fillText("3",(myCanvas.width/2)-65,(myCanvas.height/2)+100);
-      ctx.fillText("---------------",(myCanvas.width/2)-65,(myCanvas.height/2)+120);
+      ctx.fillText("3",(myCanvas.width/2)-45,(myCanvas.height/2)+100);
+      ctx.fillText("-----------------------------",(myCanvas.width/2)-65,(myCanvas.height/2)+120);
 
-      ctx.fillText("4",(myCanvas.width/2)+65,(myCanvas.height/2)+100);
-      ctx.fillText("---------------",(myCanvas.width/2)+65,(myCanvas.height/2)+120);
+      ctx.fillText("4",(myCanvas.width/2)+45,(myCanvas.height/2)+100);
+      ctx.fillText("------------------------------",(myCanvas.width/2)+65,(myCanvas.height/2)+120);
 
-      ctx.fillText("5",(myCanvas.width/2)+195,(myCanvas.height/2)+100);
-      ctx.fillText("---------------",(myCanvas.width/2)+195,(myCanvas.height/2)+120);
+      ctx.fillText("5",(myCanvas.width/2)+120,(myCanvas.height/2)+100);
+      //ctx.fillText("---------------",(myCanvas.width/2)+195,(myCanvas.height/2)+120);
 
-      ctx.fillText("6",(myCanvas.width/2)+325,(myCanvas.height/2)+100);
-      ctx.fillText("Definitely True",(myCanvas.width/2)+325,(myCanvas.height/2)+120);
+      ctx.fillText("6",(myCanvas.width/2)+195,(myCanvas.height/2)+100);
+      ctx.fillText("Definitely True",(myCanvas.width/2)+195,(myCanvas.height/2)+120);
 
-      ctx.font="25px Arial";
+      ctx.font="14px Arial";
       ctx.textAlign="left";
       //ctx.fillText("Please make a rating for the example above.", 0, (myCanvas.height/2)+200);
 
-      ctx.fillText("Please just do your best on the task. Please do not use any outside ", 0, (myCanvas.height/2)+260);
-      ctx.fillText("resources (for example: Google or a friend) to make your ratings. If you ", 0, (myCanvas.height/2)+300);
-      ctx.fillText("don't know the answer, do your best to guess. There is no penalty for ", 0, (myCanvas.height/2)+340);
-      ctx.fillText("guessing.", 0, (myCanvas.height/2)+380);
+      ctx.fillText("Please just do your best on the task. Please do not use any outside ", 0, (myCanvas.height/2)+160);
+      ctx.fillText("resources (for example: Google or a friend) to make your ratings. If you ", 0, (myCanvas.height/2)+180);
+      ctx.fillText("don't know the answer, do your best to guess. There is no penalty for ", 0, (myCanvas.height/2)+200);
+      ctx.fillText("guessing.", 0, (myCanvas.height/2)+220);
 
       ctx.textAlign="center";
-      ctx.fillText("Press any key on your keyboard to resume the task.", (myCanvas.width/2), (myCanvas.height/2)+425);
+      ctx.fillText("Press any key on your keyboard to resume the task.", (myCanvas.width/2), (myCanvas.height/2)+240);
     };
 
     //#######################################################//
@@ -578,16 +582,24 @@
 
       $("body").keypress(function(event){
         //clearTimeout();
-        if (type == 1 || type == 2 || type == 3 || type == 4 || type == 5 || type == 6) {key = event.keyCode || event.which};
+        if (type == 1 || type == 2 || type == 3 || type == 4 || type == 5 || type == 6 || type == 7) {key = event.keyCode || event.which};
         //creates more data
         d1 = new Date();
         Ronset = d1.getTime()-runStart;
         respTime = Ronset-onset;
         acc = 0;
         if (type == 0 || type == 1 || type == 2) {jokes++;}
+        else if (type == 7){
+          if(key == 110){
+            data[logCounter] = ["PrimeR:", i, Ronset, key, respTime, 9999,
+            trialmatrix[0][i],trialmatrix[1][i]];
+            logCounter++;
+            iti_screen();
+          }
+        }
         else if (type == 6) {
           if(key == 49 ||key == 50 ||key == 51 ||key == 52 ||key == 53 ||key == 54){
-            data[logCounter] = ["PR:", i, Ronset, key, respTime, 9999,
+            data[logCounter] = ["ProbeR:", i, Ronset, key, respTime, 9999,
             trialmatrix[0][i],trialmatrix[1][i]];
             logCounter++;
             iti_screen();
@@ -629,7 +641,7 @@
       <table>
         <tr>
           <td>
-            <canvas id="myCanvas" width=900 height=900 font-size=0.5vw> </canvas>
+            <canvas id="myCanvas" width=500 height=500 font-size=0.5vw> </canvas>
             <div style="text-align:center; align:center;">
             </div>
             <div style="text-align:center;">
