@@ -34,19 +34,25 @@
 		$("#myButton").show();
 		$("#submit").hide();
 		$("#redo").hide();
-			$("#instruction").text("Click button to fill out demographic survey. DO NOT CLOSE THIS SCREEN.");
+			$("#instruction").text("Click button to read consent form. DO NOT CLOSE THIS SCREEN.");
 			break;
 		case 1:
+		$("#myButton").show();
+		$("#submit").hide();
+		$("#redo").hide();
+			$("#instruction").text("Click button to fill out demographic survey. DO NOT CLOSE THIS SCREEN.");
+			break;
+		case 2:
 			$("#myButton").show();
 			$("#redo").hide();
 				$("#instruction").text("Click button to see task instructions. DO NOT CLOSE THIS SCREEN.");
 				break;
-		case 2:
+		case 3:
 		$("#myButton").show();
 		$("#redo").show();
 			$("#instruction").text("Click 'Continue' button to start main task. Or click 'Redo' to practice again. DO NOT CLOSE THIS SCREEN.");
 			break;
-		case 3:
+		case 4:
 			$("#instruction").hide();
 			$("#myButton").hide();
 			$("#redo").hide();
@@ -83,12 +89,15 @@
 			switch(curStage)
 				{
 				case 0:
-					basicPopup("Demographics.html");
+					basicPopup("Consent.html");
 					break;
 				case 1:
-					basicPopup("Instructions.html");
+					basicPopup("Demographics.html");
 					break;
 				case 2:
+					basicPopup("Instructions.html");
+					break;
+				case 3:
 					basicPopup("Task.html");
 					break;
 				}
