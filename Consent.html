@@ -4,21 +4,7 @@
 <script type="text/javascript" src="jquery-3.2.1.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	var data = [[""]];
 	$("#submitButton").click(function(){
-		var e = document.getElementById("gender");
-		data[0] = e.options[e.selectedIndex].value;
-
-		data[1] = document.getElementById("age").value;
-
-		e = document.getElementById("ethnicity");
-		data[2] = e.options[e.selectedIndex].value;
-
-		e = document.getElementById("race");
-		data[3] = e.options[e.selectedIndex].value;
-
-		//alert(data.join(";"));
-		$("#demographics", opener.window.document).val(data.join(";"));
 		opener.updateMainMenu(1);
 		JavaScript:window.close();
 	});
