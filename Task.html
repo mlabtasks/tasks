@@ -28,6 +28,7 @@
     var interveningtask   = 30
     var nummindwandering  = 20
     var numattentionchecks = 10
+    var numofinstructions = 3
 
     //----------------------SHUFFLE FUNCTION------------------//
     //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -98,12 +99,12 @@
 
       h = -1
       h2 = -1
-      for (var g=0;g < (interveningtask+trivialengthprime+trivialengthprobe+nummindwandering+numattentionchecks);g++){
+      for (var g=0;g < (interveningtask+trivialengthprime+trivialengthprobe+nummindwandering+numattentionchecks+numofinstructions);g++){
         if (g == 0){
           trialtype.push(0)
           triviafact.push(9999)
         }
-        if (g > 0 & g < trivialengthprime+nummindwandering){
+        if (g > 0 & g <= trivialengthprime+nummindwandering){
           if (mindwanderingplaces.includes(g-1)){
             trialtype.push(99)
             triviafact.push(9999)
@@ -114,20 +115,20 @@
             triviafact.push(random_item[h])
           }
         }
-        if (g == trivialengthprime+nummindwandering){
+        if (g == trivialengthprime+nummindwandering+1){
           trialtype.push(2)
           triviafact.push(9999)
         }
-        if (g > trivialengthprime+nummindwandering & g < trivialengthprime+nummindwandering+interveningtask){
+        if (g > trivialengthprime+nummindwandering+1 & g <= trivialengthprime+nummindwandering+interveningtask){
           trialtype.push(3)
           triviafact.push(9999)
         }
-        if (g == trivialengthprime+nummindwandering+interveningtask){
+        if (g == trivialengthprime+nummindwandering+interveningtask+1){
           trialtype.push(4)
           triviafact.push(9999)
           shuffle(random_item)
         }
-        if (g > trivialengthprime+nummindwandering+interveningtask){
+        if (g > trivialengthprime+nummindwandering+interveningtask+1){
           h2++;
           trialtype.push(5)
           triviafact.push(random_item_probe[h2])
