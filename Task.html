@@ -19,8 +19,8 @@
     //#######################################################//
 
     //------------------------TIMINGS-----------------------//
-    var ITEMinterval = 4000
-    var ITIinterval = 1000
+    var ITEMinterval = 250//4000
+    var ITIinterval = 250//1000
 
     //---------------------TRIAL COUNTS--------------------//
     var trivialengthprime = 160
@@ -60,7 +60,7 @@
     shuffle(random_item)
 
     random_item_probe = []
-    for (var g=0;g< (triviaitems.length)+numattentionchecks;g++) {
+    for (var g=0;g< (triviaitems.length);g++) {
       random_item_probe.push(g);
     }
 
@@ -97,7 +97,8 @@
       triviafact = []
 
       h = -1
-      for (var g=0;g< (interveningtask+trivialengthprime+trivialengthprobe+nummindwandering+3);g++){
+      h2 = -1
+      for (var g=0;g < (interveningtask+trivialengthprime+trivialengthprobe+nummindwandering+numattentionchecks);g++){
         if (g == 0){
           trialtype.push(0)
           triviafact.push(9999)
@@ -127,9 +128,9 @@
           shuffle(random_item)
         }
         if (g > trivialengthprime+nummindwandering+interveningtask){
-          h++;
+          h2++;
           trialtype.push(5)
-          triviafact.push(random_item[h])
+          triviafact.push(random_item_probe[h2])
         }
       }
 
@@ -215,7 +216,7 @@
       ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
       //sets up the text attributes
-      ctx.font="bold 16px Arial";
+      ctx.font="bold 15px Arial";
       ctx.fillStyle="white";
       ctx.textBaseline="middle";
       ctx.textAlign="center";
@@ -228,7 +229,8 @@
       logCounter++;
 
       //timeout variable
-      timeoutIMAGE = setTimeout(allow_button,ITEMinterval);
+      //timeoutIMAGE = setTimeout(allow_button,ITEMinterval);
+      timeoutIMAGE = setTimeout(iti_screen,ITEMinterval);
     };
 
     //------------------------MW SCREENS--------------------//
@@ -267,7 +269,7 @@
       ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
       //sets up the text attributes
-      ctx.font="bold 16px Arial";
+      ctx.font="bold 15px Arial";
       ctx.fillStyle="white";
       ctx.textBaseline="middle";
       ctx.textAlign="center";
@@ -308,7 +310,7 @@
     //--------------------RECORD NO RESPONSE----------------//
     function record_noresponse(){
 
-      data[logCounter] = ["SR:", 9999, 9999, 9999, 9999,
+      data[logCounter] = ["NullR:", i, 9999, 9999, 9999, 9999,
       trialmatrix[0][i],trialmatrix[1][i]];
       logCounter++;
     }
@@ -325,6 +327,11 @@
       ctx.textBaseline="middle";
       ctx.textAlign="center";
       ctx.fillText("*",myCanvas.width/2,(myCanvas.height/2));
+
+      if(logCounter == logCountertemp){
+        record_noresponse()
+      }
+      logCountertemp = logCounter
 
       //timeout variable
       i++;
@@ -545,7 +552,7 @@
     //-----------------------RUN EXPERIMENT------------------//
     //#######################################################//
     function runTrial(){
-        if (trialcount < trialmatrix[0].length){
+        if (i < trialmatrix[0].length){
           if (trialmatrix[0][i] == 0){
             instructions1();
           }
