@@ -19,14 +19,14 @@
     //#######################################################//
 
     //------------------------TIMINGS-----------------------//
-    var ITEMinterval = 250//4000
-    var ITIinterval = 250//1000
+    var ITEMinterval = 4000
+    var ITIinterval = 1000
 
     //---------------------TRIAL COUNTS--------------------//
     var trivialengthprime = 160
     var trivialengthprobe = 240
     var interveningtask   = 30
-    var nummindwandering  = 20
+    var nummindwandering  = 13
     var numattentionchecks = 10
     var numofinstructions = 3
 
@@ -85,12 +85,20 @@
       }*/
 
       //--------------------MW Interval------------------------------//
-      mindwanderinginterval = [5,6,7,8,9,10,5,6,7,8,9,10,5,6,7,8,9,10,7,8]
-      shuffle(mindwanderinginterval)
+      mindwanderinginterval = [173-1]
+
+      randomIntFromInterval = [10,11,12,13,14,15,16,17,13,14,12,13]
+      shuffle(randomIntFromInterval)
+      randomIntFromInterval.push(15)
+
+      for (var g=1; g < 13; g++){
+        mindwanderinginterval.push(mindwanderinginterval[g-1]-randomIntFromInterval[g])
+      }
+      //shuffle(mindwanderinginterval)
 
       mindwanderingplaces = []
       for (var g=0; g < mindwanderinginterval.length; g++){
-        mindwanderingplaces.push(math.sum(mindwanderinginterval.slice(-1*(g+1))))
+        mindwanderingplaces.push(mindwanderinginterval[g])
       }
 
       //--------------------Trial Types------------------------------//
@@ -119,16 +127,16 @@
           trialtype.push(2)
           triviafact.push(9999)
         }
-        if (g > trivialengthprime+nummindwandering+1 & g <= trivialengthprime+nummindwandering+interveningtask){
+        if (g > trivialengthprime+nummindwandering+1 & g <= trivialengthprime+nummindwandering+interveningtask+1){
           trialtype.push(3)
           triviafact.push(9999)
         }
-        if (g == trivialengthprime+nummindwandering+interveningtask+1){
+        if (g == trivialengthprime+nummindwandering+interveningtask+2){
           trialtype.push(4)
           triviafact.push(9999)
           shuffle(random_item)
         }
-        if (g > trivialengthprime+nummindwandering+interveningtask+1){
+        if (g > trivialengthprime+nummindwandering+interveningtask+2){
           h2++;
           trialtype.push(5)
           triviafact.push(random_item_probe[h2])
@@ -156,7 +164,6 @@
     var totalcount = 0;
     var instructioncount = 0;
     stimscreencount = 0;
-    logCountertemp = 0;
 
     //variables that just need to be
     type = 0;
@@ -231,8 +238,7 @@
       logCounter++;
 
       //timeout variable
-      //timeoutIMAGE = setTimeout(allow_button,ITEMinterval);
-      timeoutIMAGE = setTimeout(iti_screen,ITEMinterval);
+      timeoutIMAGE = setTimeout(allow_button,ITEMinterval);
     };
 
     //------------------------MW SCREENS--------------------//
@@ -329,11 +335,6 @@
       ctx.textBaseline="middle";
       ctx.textAlign="center";
       ctx.fillText("*",myCanvas.width/2,(myCanvas.height/2));
-
-      if(logCounter == logCountertemp){
-        record_noresponse()
-      }
-      logCountertemp = logCounter
 
       //timeout variable
       i++;
