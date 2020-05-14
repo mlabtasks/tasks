@@ -17,6 +17,9 @@ $(document).ready(function(){
 		e = document.getElementById("race");
 		data[3] = e.options[e.selectedIndex].value;
 
+		e = document.getElementById("education");
+		data[4] = e.options[e.selectedIndex].value;
+
 		//alert(data.join(";"));
 		$("#demographics", opener.window.document).val(data.join(";"));
 		opener.updateMainMenu(2);
