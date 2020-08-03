@@ -90,15 +90,18 @@
         ctx.fillText("Please read each statement carefully, and do your best to pay", 0, (myCanvas.height/2)-180);
         ctx.fillText("attention for the full duration of the study.", 0, (myCanvas.height/2)-160);
 
-        ctx.fillText("For example, you might see the following statement:", 0, (myCanvas.height/2)-110);
+        ctx.fillText("Some of the statements you see will be true, and some of the", 0, (myCanvas.height/2)-120);
+        ctx.fillText("statements you see will be false.", 0, (myCanvas.height/2)-100);
+
+        ctx.fillText("For example, you might see the following statement:", 0, (myCanvas.height/2)-60);
         ctx.textAlign="center";
-        ctx.fillText("The capital of the Netherlands is Amsterdam.", myCanvas.width/2, (myCanvas.height/2)-70);
+        ctx.fillText("The capital of the Netherlands is Copenhagen.", myCanvas.width/2, (myCanvas.height/2)-30);
         ctx.textAlign="left";
-        ctx.fillText("Read the statement and press 'N' to continue on to the next statement.", 0, (myCanvas.height/2)-20);
+        ctx.fillText("Read the statement and press 'N' to continue on to the next statement.", 0, (myCanvas.height/2)+10);
 
         ctx.textAlign="center";
-        ctx.fillText("Use the buttons below to see the next instructions or go back", myCanvas.width/2, (myCanvas.height/2)+50);
-        ctx.fillText("to the previous instructions.", myCanvas.width/2, (myCanvas.height/2)+70);
+        ctx.fillText("Use the buttons below to see the next instructions or go back", myCanvas.width/2, (myCanvas.height/2)+100);
+        ctx.fillText("to the previous instructions.", myCanvas.width/2, (myCanvas.height/2)+120);
 
       }
     else if (i == 2){
@@ -245,7 +248,7 @@ $("#backButton").click(function(){i--; runTrial();});
                     <input type="hidden" id="workerId" name="workerId" value="">
                     <input type="hidden" id="hitId" name="hitId" value="">
                     <input type="hidden" id="RTs" name="RTs" value="">
-                    <input type="hidden" id="ExpName" name="ExpName" value="truthmindwandering">
+                    <input type="hidden" id="ExpName" name="ExpName" value="truthmindwandering2">
                     <p style="font-family: Arial; color: white; font-size:24px"></p>
                   </td>
                 </tr>
