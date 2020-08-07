@@ -54,11 +54,32 @@
      triviaitems = facts
 
     random_item = []
-    for (var g=0;g< (triviaitems.length)-numattentionchecks;g++) {
+    for (var g=0;g< (triviaitems.length)-numattentionchecks-11;g++) {
       random_item.push(g);
     }
 
     shuffle(random_item)
+
+    arr = [];
+    while(arr.length < 5){
+      var r = Math.floor(Math.random() * 154) + 0;
+      if(arr.indexOf(r) === -1) arr.push(r);
+    }
+
+    trueitem = [230,231,232,233,234,235,236,237,238,239]
+    shuffle(trueitem)
+
+    for (var g=0;g<5;g++){
+      random_item.splice(arr[g],0,trueitem[g])
+    }
+
+
+    random_item.splice(arr[0],0,230)
+    random_item.splice(arr[1],0,231)
+    random_item.splice(arr[2],0,232)
+    random_item.splice(arr[3],0,233)
+    random_item.splice(arr[4],0,234)
+
 
     random_item_probe = []
     for (var g=0;g< (triviaitems.length);g++) {
