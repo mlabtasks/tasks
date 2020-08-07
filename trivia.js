@@ -237,7 +237,6 @@ var facts = [
 "The first genomically sequenced fish was the pufferfish.",
 "Angel Falls is located in Venezuela.",
 "The capital of Finland is called Helsinki.",
-"The last name of the woman who founded the American Red Cross is Barton.",
 "The General named Hannibal was from the city of Carthage.",
 "This is an attention check. Press 1 to continue.",
 "This is an attention check. Press 2 to continue.",
