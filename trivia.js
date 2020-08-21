@@ -1,5 +1,4 @@
-var facts = [
-"The root-like structure at the base of algae is a pneumatocyst.",
+var facts = ["The root-like structure at the base of algae is a pneumatocyst.",
 "The imperial capital of Begemder was Adama.",
 "An eye disease that distorts the cornea is ectropion.",
 "One dish made with steamed bananas is saltah.",
@@ -228,6 +227,7 @@ var facts = [
 "A cubic meter of cordwood is a fatt.",
 "The geographical range of a taxon is divided in geodispersal.",
 "The inhabitable part of the world is the ecumene.",
+"The last name of the woman who founded the American Red Cross is Barton.",
 "The river that runs through Rome is the Tiber.",
 "The first ruler of the Holy Roman Empire was Charlemagne.",
 "The last name of the inventor of the wireless radio was Marconi.",
