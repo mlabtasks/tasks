@@ -54,11 +54,11 @@
      triviaitems = facts
 
     random_item = []
-    for (var g=0;g<= (triviaitems.length)-numattentionchecks-10;g++) {
+    for (var g=0;g< (triviaitems.length)-numattentionchecks-10;g++) {
       random_item.push(g);
     }
 
-    shuffle(random_item)
+    //shuffle(random_item)
 
     arr = [];
     while(arr.length < 5){
@@ -75,7 +75,7 @@
 
 
     random_item_probe = []
-    for (var g=0;g<= (triviaitems.length);g++) {
+    for (var g=0;g< (triviaitems.length);g++) {
       random_item_probe.push(g);
     }
 
@@ -90,13 +90,13 @@
       trialmatrix = []
 
       //Code that lets me print out the trial matrix to a file
-      function download(content, fileName, contentType) {
+      /*function download(content, fileName, contentType) {
         var a = document.createElement("a");
         var file = new Blob([JSON.stringify(content)], {type: contentType});
         a.href = URL.createObjectURL(file);
         a.download = fileName;
         a.click();
-      }
+      }*/
 
       //--------------------MW Interval------------------------------//
       mindwanderinginterval = [173-1]
@@ -148,7 +148,6 @@
         if (g == trivialengthprime+nummindwandering+interveningtask+2){
           trialtype.push(4)
           triviafact.push(9999)
-          shuffle(random_item)
         }
         if (g > trivialengthprime+nummindwandering+interveningtask+2){
           h2++;
@@ -160,7 +159,7 @@
       trialmatrix = [trialtype,triviafact]
 
       //Code that prints out the trial matrix to a file
-      download(trialmatrix, 'json.txt', 'text/plain');
+      //download(trialmatrix, 'json.txt', 'text/plain');
       runTrial();
     };
 
