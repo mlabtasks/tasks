@@ -271,16 +271,15 @@
       ctx.fillText("Focussed",(myCanvas.width/2)-195,(myCanvas.height/2)+0);
       ctx.fillText("On Task",(myCanvas.width/2)-195,(myCanvas.height/2)+20);
 
-      ctx.fillText("2",(myCanvas.width/2)-120,(myCanvas.height/2)+40);
 
-      ctx.fillText("3",(myCanvas.width/2)-45,(myCanvas.height/2)+40);
+      ctx.fillText("2",(myCanvas.width/2)-97.5,(myCanvas.height/2)+40);
 
-      ctx.fillText("4",(myCanvas.width/2)+45,(myCanvas.height/2)+40);
+      ctx.fillText("3",(myCanvas.width/2)+0,(myCanvas.height/2)+40);
       ctx.fillText("-------------------------------------------------------",(myCanvas.width/2)+0,(myCanvas.height/2)+20);
 
-      ctx.fillText("5",(myCanvas.width/2)+120,(myCanvas.height/2)+40);
+      ctx.fillText("4",(myCanvas.width/2)+97.5,(myCanvas.height/2)+40);
 
-      ctx.fillText("6",(myCanvas.width/2)+195,(myCanvas.height/2)+40);
+      ctx.fillText("5",(myCanvas.width/2)+195,(myCanvas.height/2)+40);
       ctx.fillText("Not Focussed",(myCanvas.width/2)+195,(myCanvas.height/2)+0);
       ctx.fillText("Off Task",(myCanvas.width/2)+195,(myCanvas.height/2)+20);
 
@@ -587,7 +586,7 @@
     function runTrial(){
         if (i < trialmatrix[0].length){
           if (trialmatrix[0][i] == 0){
-            instructions1();
+            mindwandering();
           }
           if (trialmatrix[0][i] == 1){
             trivia_prime(trialmatrix[1][i]);
