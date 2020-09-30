@@ -267,11 +267,25 @@
       ctx.textAlign="center";
 
       ctx.fillText("Just prior to the onset of this screen, I was:", (myCanvas.width/2), (myCanvas.height/2)-50);
-      ctx.fillText("(5) Focused on the task.", (myCanvas.width/2), (myCanvas.height/2));
-      ctx.fillText("(6) Not focused on the task, but I WAS trying to focus on it.", (myCanvas.width/2), (myCanvas.height/2)+20);
-      ctx.fillText("(7) Not focused on the task, and I WASN'T trying to focus on it.", (myCanvas.width/2), (myCanvas.height/2)+40);
+      ctx.fillText("1",(myCanvas.width/2)-195,(myCanvas.height/2)+40);
+      ctx.fillText("Focussed",(myCanvas.width/2)-195,(myCanvas.height/2)+0);
+      ctx.fillText("On Task",(myCanvas.width/2)-195,(myCanvas.height/2)+20);
 
-      ctx.fillText("Please press the corresponding number to indiciate your choice.", (myCanvas.width/2), (myCanvas.height/2)+90);
+      ctx.fillText("2",(myCanvas.width/2)-120,(myCanvas.height/2)+40);
+
+      ctx.fillText("3",(myCanvas.width/2)-45,(myCanvas.height/2)+40);
+
+      ctx.fillText("4",(myCanvas.width/2)+45,(myCanvas.height/2)+40);
+      ctx.fillText("-------------------------------------------------------",(myCanvas.width/2)+0,(myCanvas.height/2)+20);
+
+      ctx.fillText("5",(myCanvas.width/2)+120,(myCanvas.height/2)+40);
+
+      ctx.fillText("6",(myCanvas.width/2)+195,(myCanvas.height/2)+40);
+      ctx.fillText("Not Focussed",(myCanvas.width/2)+195,(myCanvas.height/2)+0);
+      ctx.fillText("Off Task",(myCanvas.width/2)+195,(myCanvas.height/2)+20);
+
+      ctx.fillText("Please press the corresponding number on your keyboard", (myCanvas.width/2), (myCanvas.height/2)+90);
+      ctx.fillText("to indiciate your choice.", (myCanvas.width/2), (myCanvas.height/2)+110);
 
       //record presentation data
       data[logCounter] = ["MWP:", i, onset, 9999, 9999, 9999,
@@ -633,7 +647,7 @@
         }
         else if (type == 3) {document.getElementById("myCanvas").style.cursor = "none"; countDown(3);}
         else if (type == 4) {
-          if(key == 53 || key == 54 || key == 55){
+          if(key == 50 || key == 51 || key == 52 || key == 53 || key == 54 || key == 49){
             data[logCounter] = ["MWR:", i, Ronset, key, respTime, 9999,
             trialmatrix[0][i],trialmatrix[1][i]];
             logCounter++;
