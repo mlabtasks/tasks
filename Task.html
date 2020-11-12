@@ -259,6 +259,13 @@
       d1 = new Date();
       onset = d1.getTime() - runStart;
       type = 4;
+      $("#myRange").show();
+      $("#Example").show();
+      $("#AmMW").show();
+      $("#NotMW").show();
+      document.getElementById("myCanvas").style.cursor = "grab";
+      document.getElementById("myRange").value = 50;
+
       $("#startButton").hide();
       ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
       ctx.font="16px Arial";
@@ -266,25 +273,32 @@
       ctx.textBaseline="middle";
       ctx.textAlign="center";
 
-      ctx.fillText("Just prior to the onset of this screen, I was:", (myCanvas.width/2), (myCanvas.height/2)-50);
-      ctx.fillText("1",(myCanvas.width/2)-195,(myCanvas.height/2)+40);
-      ctx.fillText("Focussed",(myCanvas.width/2)-195,(myCanvas.height/2)+0);
-      ctx.fillText("On Task",(myCanvas.width/2)-195,(myCanvas.height/2)+20);
+      ctx.fillText("To what extent were you mind wandering?", (myCanvas.width/2), (myCanvas.height/2)-200);
+      ctx.fillText("Use the slider below to indicate the depth of your mind wandering.",(myCanvas.width/2),(myCanvas.height/2)-150);
+      ctx.fillText("Remember, mind wandering is when you are thinking about ",(myCanvas.width/2),(myCanvas.height/2)-100);
+      ctx.fillText("something unrelated to the task.",(myCanvas.width/2),(myCanvas.height/2)-80);
 
 
-      ctx.fillText("2",(myCanvas.width/2)-97.5,(myCanvas.height/2)+40);
+      $("#Example").on('click', function(){
+        if(document.getElementById("myRange").value != 50){
+          $("#myRange").hide();
+          $("#Example").hide();
+          $("#AmMW").hide();
+          $("#NotMW").hide();
+          Ronset = d1.getTime()-runStart;
+          respTime = Ronset-onset;
+          acc = 0;
+          data[logCounter] = ["MWR:", i, Ronset, document.getElementById("myRange").value, respTime, 9999,
+          trialmatrix[0][i],trialmatrix[1][i]];
+          logCounter++;
+          iti_screen();
+        }
+        else{
+          ctx.fillStyle="red";
+          ctx.fillText("Please move the slider before continuing.",(myCanvas.width/2),(myCanvas.height/2)+40);
+        }
+      });
 
-      ctx.fillText("3",(myCanvas.width/2)+0,(myCanvas.height/2)+40);
-      ctx.fillText("-------------------------------------------------------",(myCanvas.width/2)+0,(myCanvas.height/2)+20);
-
-      ctx.fillText("4",(myCanvas.width/2)+97.5,(myCanvas.height/2)+40);
-
-      ctx.fillText("5",(myCanvas.width/2)+195,(myCanvas.height/2)+40);
-      ctx.fillText("Not Focussed",(myCanvas.width/2)+195,(myCanvas.height/2)+0);
-      ctx.fillText("Off Task",(myCanvas.width/2)+195,(myCanvas.height/2)+20);
-
-      ctx.fillText("Please press the corresponding number on your keyboard", (myCanvas.width/2), (myCanvas.height/2)+90);
-      ctx.fillText("to indiciate your choice.", (myCanvas.width/2), (myCanvas.height/2)+110);
 
       //record presentation data
       data[logCounter] = ["MWP:", i, onset, 9999, 9999, 9999,
@@ -586,7 +600,7 @@
     function runTrial(){
         if (i < trialmatrix[0].length){
           if (trialmatrix[0][i] == 0){
-            mindwandering();
+            instructions1();
           }
           if (trialmatrix[0][i] == 1){
             trivia_prime(trialmatrix[1][i]);
@@ -645,14 +659,6 @@
           }
         }
         else if (type == 3) {document.getElementById("myCanvas").style.cursor = "none"; countDown(3);}
-        else if (type == 4) {
-          if(key == 50 || key == 51 || key == 52 || key == 53 || key == 54 || key == 49){
-            data[logCounter] = ["MWR:", i, Ronset, key, respTime, 9999,
-            trialmatrix[0][i],trialmatrix[1][i]];
-            logCounter++;
-            iti_screen();
-          }
-        }
         else if (type == 5) {
           if(key == 49 || key == 50){
             data[logCounter] = ["ITR:", i, Ronset, key, respTime, 9999,
@@ -668,6 +674,11 @@
         $("#form").hide();
         $('#button').hide();
         $("#mturk_form").hide();
+        $("#myRange").hide();
+        $("#Example").hide();
+        $("#AmMW").hide();
+        $("#NotMW").hide();
+
         d1 = new Date();
         runStart = d1.getTime();
         createTrialMatrix();
@@ -683,6 +694,13 @@
             <canvas id="myCanvas" width=500 height=500 font-size=0.5vw> </canvas>
             <div style="text-align:center; align:center;">
             </div>
+            <div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <p>Value: <span id="demo"></span></p>
+</div>
+            <button id='Example'>Continue</button>
+            <button id='AmMW'>Fully Mind Wandering </button>
+            <button id='NotMW'>Not At All Mind Wandering</button>
             <div style="text-align:center;">
               <button id="startButton">Start</button>
             </div>
@@ -699,8 +717,8 @@
               <input type="hidden" id="workerId" name="workerId" value="">
               <input type="hidden" id="hitId" name="hitId" value="">
               <input type="hidden" id="RTs" name="RTs" value="">
-              <input type="hidden" id="demographics" name="demographics" value="truthmindwandering2">
-              <input type="hidden" id="ExpName" name="ExpName" value="truthmindwandering2">
+              <input type="hidden" id="demographics" name="demographics" value="truthmindwandering3">
+              <input type="hidden" id="ExpName" name="ExpName" value="truthmindwandering3">
             </form>
           </td>
         </tr>
