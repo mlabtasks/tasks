@@ -5,6 +5,7 @@
   <script type="text/javascript" src="jquery-3.2.1.js"></script>
   <script type="text/javascript" src="math.js"></script>
   <script type="text/javascript" src="trivia.js"></script>
+  <button id='Example'>Continue</button>
   <script type="text/javascript">
 
 
@@ -13,6 +14,7 @@
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     document.getElementById("myCanvas").style.cursor = "none";
+    document.getElementById ("Example").addEventListener ("click", record_MW, false);
 
     //#######################################################//
     //-------------GLOBAL EXPERIMENT PARAMETERS--------------//
@@ -51,14 +53,14 @@
     //-----------------------LOAD TRIVIA---------------------//
     //#######################################################//
 
-     triviaitems = facts
+    triviaitems = facts
 
     random_item = []
     for (var g=0;g< (triviaitems.length)-numattentionchecks-10;g++) {
       random_item.push(g);
     }
 
-    //shuffle(random_item)
+    shuffle(random_item)
 
     arr = [];
     while(arr.length < 5){
@@ -278,32 +280,30 @@
       ctx.fillText("Remember, mind wandering is when you are thinking about ",(myCanvas.width/2),(myCanvas.height/2)-100);
       ctx.fillText("something unrelated to the task.",(myCanvas.width/2),(myCanvas.height/2)-80);
 
-
-      $("#Example").on('click', function(){
-        if(document.getElementById("myRange").value != 50){
-          $("#myRange").hide();
-          $("#Example").hide();
-          $("#AmMW").hide();
-          $("#NotMW").hide();
-          Ronset = d1.getTime()-runStart;
-          respTime = Ronset-onset;
-          acc = 0;
-          data[logCounter] = ["MWR:", i, Ronset, document.getElementById("myRange").value, respTime, 9999,
-          trialmatrix[0][i],trialmatrix[1][i]];
-          logCounter++;
-          iti_screen();
-        }
-        else{
-          ctx.fillStyle="red";
-          ctx.fillText("Please move the slider before continuing.",(myCanvas.width/2),(myCanvas.height/2)+40);
-        }
-      });
-
-
       //record presentation data
       data[logCounter] = ["MWP:", i, onset, 9999, 9999, 9999,
       trialmatrix[0][i],trialmatrix[1][i]];
       logCounter++;
+    };
+
+    function record_MW(){
+      if(document.getElementById("myRange").value != 50){
+        $("#myRange").hide();
+        $("#Example").hide();
+        $("#AmMW").hide();
+        $("#NotMW").hide();
+        Ronset = d1.getTime()-runStart;
+        respTime = Ronset-onset;
+        acc = 0;
+        data[logCounter] = ["MWR:", i, Ronset, document.getElementById("myRange").value, respTime, 9999,
+        trialmatrix[0][i],trialmatrix[1][i]];
+        logCounter++;
+        timeoutITI = setTimeout(iti_screen,50);
+      }
+      else{
+        ctx.fillStyle="red";
+        ctx.fillText("Please move the slider before continuing.",(myCanvas.width/2),(myCanvas.height/2)+40);
+      }
     };
 
     //------------------TRIVIA PROBE SCREENS-----------------//
@@ -695,10 +695,9 @@
             <div style="text-align:center; align:center;">
             </div>
             <div class="slidecontainer">
-  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-  <p>Value: <span id="demo"></span></p>
-</div>
-            <button id='Example'>Continue</button>
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+              <p><span id="demo"></span></p>
+            </div>
             <button id='AmMW'>Fully Mind Wandering </button>
             <button id='NotMW'>Not At All Mind Wandering</button>
             <div style="text-align:center;">
