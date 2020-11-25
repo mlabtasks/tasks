@@ -17,7 +17,7 @@ function gup( name, tmpURL )
 $(document).ready(function(){
 	var workerId = gup('workerId', document.referrer);
 	if (workerId == "") {
-		$("#results").text("Thank you for your interest, but you are not eligible for this HIT.");
+		$("#results").text("Please accept this HIT first to see your eligibility.");
 	} else {
 		document.getElementById('workerId').value = workerId;
 		document.getElementById("mturk_form").submit();
@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 <form id="mturk_form" method="POST" action="https://dibs-web01.vm.duke.edu/AMTSubmit/DatabaseTest.php">
 <input type="hidden" id="workerId" name="workerId" value="">
-<input type="hidden" id="ExpName" name="ExpName" value="truthmindwandering3">
+<input type="hidden" id="ExpName" name="ExpName" value="truthmindwandering2">
 </form>
 
 </body>
